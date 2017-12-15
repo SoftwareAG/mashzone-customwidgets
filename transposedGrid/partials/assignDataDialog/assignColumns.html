@@ -1,0 +1,12 @@
+Grid Contents
+<ul ff-multiple-column-drop
+    class="columnDropTarget"
+    item="itemClone"
+    columns="itemClone.config.dataMapping.gridDataColumns"
+    input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+    column-dropped="columnDropHandler(column)"
+    accept-filter="text,numeric,date"
+    column-clicked="columnSelectionHandler(column)"
+    selection-condition="isSelected(column)"
+    sortable="true">
+</ul>

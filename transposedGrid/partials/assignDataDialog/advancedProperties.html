@@ -1,0 +1,16 @@
+<div ng-if="selectedColumn" class="advanced-properties">
+  <div class="advanced-cofig-main-row">
+    Display Name
+    <div ff-column-name-input item="itemClone" column="selectedColumn"></div>
+  </div>
+
+  <!--Switches templates depending on the data type of the selected column-->
+  <div ff-column-type-config widget-type-name='transposedGrid' column="selectedColumn"></div>
+
+  <div ng-if="isLabelColSelected()">
+    <div>
+      <div ff-thresholds-config thresholds="itemClone.config.transposedGridCfg.thresholds" item="itemClone">
+      </div>
+    </div>
+  </div>
+</div>

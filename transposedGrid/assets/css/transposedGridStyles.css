@@ -1,0 +1,89 @@
+.list-contents-container {
+    /* this size needs to be the same as the width of the label-column */
+    margin-left: 100px;
+}
+.transposedGrid {
+    overflow: auto;
+    padding: 10px;
+    height: 100%;
+}
+
+.transposedGrid td.label-column {
+    min-width: 90px;
+    position: absolute;
+    top: auto;
+    left: 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.transposedGrid .label-column div {
+    min-width: 100px;
+    font-weight: 600;
+    color: #444444;
+}
+.transposedGrid td {
+    border: none;
+    padding: 5px;
+}
+.transposedGrid tr {
+    border: none;
+}
+.transposedGrid table > tbody > tr > td {
+    border: none;
+}
+.transposedGrid table div {
+    text-align: left;
+}
+
+
+.transposedGrid .value-column div {
+    font-weight: 400;
+    color: #444444;
+    text-align: center;
+}
+
+.transposedGrid tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+.transposedGrid tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.columnDropTarget{
+    width: 200px;
+    max-width: 200px;
+}
+
+.transposed-grid-assign-data .colorPickerIcon{
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.transposed-grid-assign-data .partition-meta-table td {
+    padding: 2px;
+}
+
+.transposed-grid-assign-data select {
+    height: 24px;
+}
+
+.transposed-grid-assign-data .add-partition-meta {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/presto/hub/dashboard/assets/images/add_16x16.png);
+}
+
+.transposed-grid-assign-data .remove-partition-meta {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/presto/hub/dashboard/assets/images/remove_16x16.png);
+}

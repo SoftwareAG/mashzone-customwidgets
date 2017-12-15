@@ -1,0 +1,13 @@
+<div transposed-grid class="transposedGrid" id="{{customWidgetID}}">
+    <div class="list-contents-container">
+        <table class="custom-table">
+            <tbody style="overflow:auto;">
+                <tr ng-repeat="row in data">
+                    <td ng-repeat="elem in row.values track by $index" ng-class="{'label-column': $index==0,'value-column': $index>0}">
+                        <div >{{elem}}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
