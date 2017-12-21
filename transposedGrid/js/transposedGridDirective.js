@@ -1,6 +1,6 @@
 angular.module('transposedGridModule')
-  .directive('transposedGrid', ['$timeout', 'lodash',
-    function($timeout, _) {
+  .directive('transposedGrid', ['$timeout', 'lodash','jQuery',
+    function($timeout, _,jQuery) {
       return {
         restrict: 'EA',
         link: function($scope, element, attrs) {
@@ -19,17 +19,26 @@ angular.module('transposedGridModule')
               $timeout(function() {
                 for (var i = 0; i < theRows.length; i++) {
                   var rowHeight = theRows[i].clientHeight;
+                  if (rowHeight == 0) {
+                    rowHeight = 30;
+                  }
                   var theCells = theRows[i].children;
                   if(theCells[0]) {
                     theCells[0].style.height = rowHeight + "px";
                   }
+                  jQuery('#' + element[0].id + ' tbody').scroll(function (evt) {
+                    jQuery('#' + element[0].id + ' tbody td:nth-child(1)').css("left", jQuery('#' + element[0].id + ' tbody').scrollLeft());
+                  });
                 }
               });
-              theTableDiv.node().style.width = element[0].getBoundingClientRect().width - 100 - 20 + "px";
-            } 
+              theTableDiv.node().style.width = element[0].getBoundingClientRect().width - 20 + "px";
+            } else {
+              console.log("+*+*+* no data");
+            }
           }
 
           $scope.$watchCollection('[width, height]', _.debounce(function(newValues, oldValues) {
+            // console.log("### resizing to ", newValues);
             redraw();
           }, 0, {
             leading: true,

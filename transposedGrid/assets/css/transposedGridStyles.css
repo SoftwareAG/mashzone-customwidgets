@@ -1,18 +1,56 @@
 .list-contents-container {
     /* this size needs to be the same as the width of the label-column */
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
+
 .transposedGrid {
     overflow: auto;
     padding: 10px;
     height: 100%;
 }
 
+.transposedGrid table {
+    table-layout: fixed;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.transposedGrid tbody {
+    flex: 1;
+    position: relative;
+    /* display: block; */
+    /*seperates the tbody from the header*/
+    overflow: auto;
+}
+
+.transposedGrid tr {
+    border: none;
+}
+
+.transposedGrid table>tbody>tr>td {
+    /* border: none; */
+}
+
+.transposedGrid tbody td {
+    min-width: 120px;
+    border: none;
+    padding: 5px;
+}
+
+.transposedGrid tbody tr td:nth-child(1) {
+    /*the first cell in each tr*/
+    position: relative;
+    background-color: white;
+}
+
 .transposedGrid td.label-column {
     min-width: 90px;
-    position: absolute;
+    /* position: absolute;
     top: auto;
-    left: 0;
+    left: 0; */
     padding-left: 10px;
     display: flex;
     align-items: center;
@@ -23,20 +61,11 @@
     font-weight: 600;
     color: #444444;
 }
-.transposedGrid td {
-    border: none;
-    padding: 5px;
-}
-.transposedGrid tr {
-    border: none;
-}
-.transposedGrid table > tbody > tr > td {
-    border: none;
-}
+
+
 .transposedGrid table div {
     text-align: left;
 }
-
 
 .transposedGrid .value-column div {
     font-weight: 400;
@@ -52,12 +81,12 @@
     background-color: #ffffff;
 }
 
-.columnDropTarget{
+.columnDropTarget {
     width: 200px;
     max-width: 200px;
 }
 
-.transposed-grid-assign-data .colorPickerIcon{
+.transposed-grid-assign-data .colorPickerIcon {
     width: 25px !important;
     height: 25px !important;
 }
