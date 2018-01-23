@@ -1,0 +1,73 @@
+.simpleMapWidget-assign-data select {
+    height: 24px;
+}
+
+.simpleMapWidget-assign-data .add-icon-setting {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/presto/hub/dashboard/assets/images/add_16x16.png);
+}
+
+.simpleMapWidget-assign-data .remove-icon-setting {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/presto/hub/dashboard/assets/images/remove_16x16.png);
+}
+
+.simpleMapWidget-config {
+    /* width: 160px;
+    margin-left: -6px;
+    margin-right: -4px;
+    padding-left: 0px;
+    padding-right: 0; */
+}
+
+.simpleMapWidget-config.location-config {
+    width: 130px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.simpleMapWidget-config .form-control {
+    box-sizing: border-box;
+    min-width: 25px;
+    height: 27px;
+}
+
+.simpleMapWidget-config .row {
+    margin-bottom: 2px;
+    margin-left: 0px;
+    float: left;
+}
+
+.simpleMapWidget-config .btn {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.marker-div-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0899cc;
+    font-size: 14px;
+}
+
+.simpleMapWidget .route-link {
+    fill: none;
+    stroke: #0899cc;
+    stroke-width: 2.5
+}
+
+.simpleMapWidget .route-marker-end {
+    fill: steelblue;
+    stroke-width: 0;
+}

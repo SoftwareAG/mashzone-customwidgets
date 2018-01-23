@@ -1,0 +1,5 @@
+<div ng-show="statusHeaderSelected" class="advanced-properties">
+  Threshold Configuration {{selectedColumn.name}}
+  <div ff-thresholds-config thresholds="itemClone.config.properties.thresholdConfig.thresholds" item="itemClone"></div>
+  <ff-inactive-visualization thresholds="itemClone.config.properties.thresholdConfig" item="itemClone" />
+</div>

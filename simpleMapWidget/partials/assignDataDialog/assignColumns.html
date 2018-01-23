@@ -1,0 +1,202 @@
+<div ng-if="itemClone.config.properties.showMarkers && !itemClone.config.properties.showRoutes">
+    ID 
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.idColumn"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="text,numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+    Label (Must be Unique)
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.labelColumn"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="text,numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+    Latitude
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.latitude"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+    Longitude
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.longitude"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+    Description(s)
+    <ul ff-multiple-column-drop
+        class="normal-columns"
+        item="itemClone"
+        columns="itemClone.config.dataMapping.descColumns"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="text,numeric,date"
+        column-clicked="columnSelectionHandler(column)"
+        selection-condition="isSelected(column)"
+        sortable="true">
+    </ul>
+
+    <!-- TODO: Add Dynamic Icons based on incoming data -->
+    <!-- <div class="draggable-column thresholdEntry" ng-click="selectIconHeader()">
+        <span>Icon</span>
+        <span class="edit"></span>
+        <span class="selection-tooltip" ng-if="showIconEdit()"></span>
+    </div>
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.typeColumn"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="text"
+        selection-condition="isSelected(column)">
+    </ul> -->
+
+    <!-- <div class="draggable-column thresholdEntry" ng-click="selectStatusHeader()">
+        <span>Color</span>
+        <span class="edit"></span>
+        <span class="selection-tooltip" ng-if="showColorThreshold()"></span>
+    </div> -->
+    Marker Color
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.statusColumn"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+
+    <div class="draggable-column thresholdEntry"
+         ng-show="selectedColumn.type ==='NUMERIC'"
+         ff-hover="thresholdEntry_hover"
+         ng-class="ffHover.hoverClass !== '' ? ffHover.hoverClass : statusHeaderSelected ? 'thresholdEntry_selected' : ''"
+         ng-click="selectStatusHeader()">
+        <span>Thresholds</span>
+        <span class="edit"></span>
+        <span class="selection-tooltip" ng-if="showColorThreshold()"></span>
+    </div>
+</div>
+
+<div ng-if="itemClone.config.properties.showRoutes">
+    Route ID 
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.idColumn"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="text,numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+    Origin Label
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.originLabel"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="text"
+        selection-condition="isSelected(column)">
+    </ul>
+
+    Origin Latitude
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.latitudeOrigin"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+
+    Origin Longitude
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.longitudeOrigin"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+
+    Destination Label
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.destinationLabel"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="text"
+        selection-condition="isSelected(column)">
+    </ul>
+
+    Destination Latitude
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.latitudeDestination"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+
+    Destination Longitude
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.longitudeDestination"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+
+    Marker Color
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.statusColumn"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+    
+    <div class="draggable-column thresholdEntry"
+        ng-show="selectedColumn.type ==='NUMERIC'"
+        ff-hover="thresholdEntry_hover"
+        ng-class="ffHover.hoverClass !== '' ? ffHover.hoverClass : statusHeaderSelected ? 'thresholdEntry_selected' : ''"
+        ng-click="selectStatusHeader()">
+        <span>Thresholds</span>
+        <span class="edit"></span>
+        <span class="selection-tooltip" ng-if="showColorThreshold()"></span>
+    </div>
+</div>

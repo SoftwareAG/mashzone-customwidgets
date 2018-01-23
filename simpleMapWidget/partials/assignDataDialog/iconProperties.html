@@ -1,0 +1,50 @@
+Icon Configuration
+<div>
+    <table class="table color-threshold-table">
+        <tr>
+            <td>Default</td>
+            <td>
+                <select class="form-control" ng-model="itemClone.config.properties.iconConfig.default.shape">
+                    <option value="circle">Circle</option>
+                    <option value="paddle">Paddle</option>
+                    <option value="paddleWithDot">Paddle (Dot)</option>
+                    <option value="fontAwesomePaddle">Icon</option>
+                    <option value="letterPaddle">Character</option>
+                </select>
+            </td>
+            <td>
+                <input class="form-control" type="text" style="width: 3em;"
+                       ng-style="{'font-family': itemClone.config.properties.iconConfig.default.shape == 'fontAwesomePaddle' ? 'Fontawesome' : undefined }"
+                       ng-model="itemClone.config.properties.iconConfig.default.label"
+                       ng-if="itemClone.config.properties.iconConfig.default.shape == 'fontAwesomePaddle' || itemClone.config.properties.iconConfig.default.shape == 'letterPaddle'"/>
+            </td>
+        </tr>
+        <tr ng-repeat="item in itemClone.config.properties.iconConfig.settings" ng-if="itemClone.config.dataMapping.typeColumn">
+            <td>
+                <input class="form-control" type="text" ng-model="item.value" placeholder="value"/>
+            </td>
+            <td>
+                <select class="form-control" ng-model="item.shape">
+                    <option value="circle">Circle</option>
+                    <option value="paddle">Paddle</option>
+                    <option value="paddleWithDot">Paddle (Dot)</option>
+                    <option value="fontAwesomePaddle">Icon</option>
+                    <option value="letterPaddle">Character</option>
+                </select>
+            </td>
+            <td>
+                <input class="form-control" type="text" style="width: 3em;"
+                       ng-style="{'font-family': item.shape == 'fontAwesomePaddle' ? 'Fontawesome' : undefined }"
+                       ng-model="item.label"
+                       ng-if="item.shape == 'fontAwesomePaddle' || item.shape == 'letterPaddle'"/>
+            </td>
+        </tr>
+        <tr ng-if="itemClone.config.dataMapping.typeColumn">
+            <td colspan="3">
+                <div class="add-icon-setting" ng-click="addIconSetting()"></div>
+                <div class="remove-icon-setting" ng-click="removeIconSetting()" ng-if="itemClone.config.properties.iconConfig.settings.length"></div>
+            </td>
+        </tr>
+    </table>
+    Note: Icons can be <a href="http://fontawesome.io/cheatsheet/" target="_blank">pasted from here</a>
+</div>
