@@ -1,5 +1,5 @@
 angular.module('simpleMapWidgetModule')
-  .controller('simpleMapWidgetCtrl', ['$scope', 'UtilX', 'jQuery', '$interval', 'formatDateService', 'formatNumberService', 'thresholdConstants', 'thresholdService', 'lodashPromise', 'selectionService', 'filterService', 'actionService', 'actionConstants',
+  .controller('simpleMapWidgetCtrl', ['$scope', 'UtilX_smw', 'jQuery', '$interval', 'formatDateService', 'formatNumberService', 'thresholdConstants', 'thresholdService', 'lodashPromise_smw', 'selectionService', 'filterService', 'actionService', 'actionConstants',
     function($scope, UtilX, jQuery, $interval, formatDateService, formatNumberService, thresholdConstants, thresholdService, lodashPromise, selectionService, filterService, actionService, actionConstants) {
       lodashPromise.then(function(_) {
         if (!$scope.config) {

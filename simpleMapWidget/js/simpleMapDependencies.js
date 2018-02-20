@@ -3,7 +3,7 @@ angular.module('simpleMapWidgetModule')
     // License - N/A built into MashZone
     return $window.jQuery;
   }])
-  .service('UtilX', [function() {
+  .service('UtilX_smw', [function() {
     /**
      * this contains some utils I find useful inside the widgets. Most of it has been taken from internet forums (stackoverflow...)
      * and is therefore not my work
@@ -28,7 +28,7 @@ angular.module('simpleMapWidgetModule')
     }
     return UtilX;
   }])
-  .service('leafletPromise', ['$q', '$window', 'jQuery', function($q, $window, jQuery) {
+  .service('leafletPromise_smw', ['$q', '$window', 'jQuery', function($q, $window, jQuery) {
     var deferred = $q.defer();
     jQuery.getScript("/mashzone/hub/dashboard/widgets/customWidgets/simpleMapWidget/js/leaflet.js.src")
       .done(function(script, textStatus) {
@@ -39,7 +39,7 @@ angular.module('simpleMapWidgetModule')
       });
     return deferred.promise;
   }])
-  .service('lodashPromise', ['$q', '$window', 'jQuery', function($q, $window, jQuery) {
+  .service('lodashPromise_smw', ['$q', '$window', 'jQuery', function($q, $window, jQuery) {
     // License - MIT
     var deferred = $q.defer();
     jQuery.getScript("/mashzone/hub/dashboard/widgets/customWidgets/simpleMapWidget/js/lodash.min.js.src", function() {
@@ -47,7 +47,7 @@ angular.module('simpleMapWidgetModule')
     });
     return deferred.promise;
   }])
-  .service('d3-color', [function() {
+  .service('d3-color_smw', [function() {
     // License - BSD
     var loadD3 = function() {
       // https://d3js.org/d3-color/ Version 1.0.2. Copyright 2016 Mike Bostock.

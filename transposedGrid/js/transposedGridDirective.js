@@ -1,5 +1,5 @@
 angular.module('transposedGridModule')
-  .directive('transposedGrid', ['$timeout', 'lodash','jQuery',
+  .directive('transposedGrid', ['$timeout', 'lodash_tg','jQuery',
     function($timeout, _,jQuery) {
       return {
         restrict: 'EA',

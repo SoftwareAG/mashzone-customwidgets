@@ -4,7 +4,7 @@ angular.module('transposedGridModule')
  * Controller for the custom widget
  * The controller provides the widget variables and manages the interactions between data-model and view
  */
-.controller('transposedGridCtrl', ['$scope', 'thresholdService', 'thresholdConstants', 'formatNumberService', 'lodash', 'jQuery', 'UtilX',
+.controller('transposedGridCtrl', ['$scope', 'thresholdService', 'thresholdConstants', 'formatNumberService', 'lodash_tg', 'jQuery', 'UtilX_tg',
   function($scope, thresholdService, thresholdConstants, formatNumberService, _, jQuery, UtilX) {
 
     $scope.customWidgetID = UtilX.generateUUID();

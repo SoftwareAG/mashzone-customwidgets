@@ -1,5 +1,5 @@
 angular.module('simpleMapWidgetModule')
-  .directive('simpleMap', ['jQuery', 'lodashPromise', 'leafletPromise', 'thresholdService', 'mapStyleService', 'selectionService',
+  .directive('simpleMap', ['jQuery', 'lodashPromise_smw', 'leafletPromise_smw', 'thresholdService', 'mapStyleService', 'selectionService',
     function(jQuery, lodashPromise, leafletPromise, thresholdService, mapStyleService, selectionService) {
       return {
         restrict: 'A',
