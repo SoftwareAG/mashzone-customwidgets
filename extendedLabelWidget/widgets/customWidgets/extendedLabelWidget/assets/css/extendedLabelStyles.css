@@ -1,0 +1,66 @@
+.extendedLabelWidget-assign-data select {
+    height: 24px;
+}
+
+.extendedLabelWidget-assign-data .add-icon-setting {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/presto/hub/dashboard/assets/images/add_16x16.png);
+}
+
+.extendedLabelWidget-assign-data .remove-icon-setting {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/presto/hub/dashboard/assets/images/remove_16x16.png);
+}
+
+.extendedLabelWidget-config.location-config {
+    width: 130px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.extendedLabelWidget-config .row {
+    margin-bottom: 2px;
+    margin-left: 0px;
+    float: left;
+}
+
+.extendedLabelWidget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.extendedLabelWidget div.the-other-label {
+    min-width: 30px;
+    min-height: 30px;
+    height: 100%;
+    /* order: 2; */
+    width: 100%;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.extendedLabelWidget .label-title {
+    font-size: 25px;
+    line-height: 35px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* order: 1; */
+}
+
+.extendedLabelWidget canvas {
+    display: none;
+    /* order: 3; */
+}

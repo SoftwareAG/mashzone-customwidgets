@@ -1,0 +1,58 @@
+<div>
+    Label Value
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.labelCol"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="text,numeric,date"
+        selection-condition="isSelected(column)">
+    </ul>
+    Footer Left Value
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.footerLeftCol"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="text,numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+    Footer Right Value
+    <ul ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.footerRightCol"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="text,numeric"
+        selection-condition="isSelected(column)">
+    </ul>
+    
+    More columns (invisible)
+    <ul ff-multiple-column-drop
+        class="normal-columns"
+        item="itemClone"
+        columns="itemClone.config.dataMapping.moreColumns"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="text,numeric,date"
+        column-clicked="columnSelectionHandler(column)"
+        selection-condition="isSelected(column)"
+        sortable="true">
+    </ul>
+
+    <div class="draggable-column thresholdEntry"
+         ng-show="selectedColumn.type ==='NUMERIC'"
+         ff-hover="thresholdEntry_hover"
+         ng-class="ffHover.hoverClass !== '' ? ffHover.hoverClass : ''">
+        <span>Thresholds</span>
+        <span class="edit"></span>
+        <span class="selection-tooltip" ></span>
+    </div>
+</div>
+

@@ -1,0 +1,13 @@
+<div ng-if="!statusHeaderSelected && selectedColumn" class="advanced-properties">
+    <div class="advanced-cofig-main-row">
+        Display Name ({{selectedColumn.name}})
+        <div ff-column-name-input
+             item="itemClone"
+             column="selectedColumn"></div>
+    </div>
+    
+    <!--Switches templates depending on the data type of the selected column-->
+    <div ff-column-type-config
+         widget-type-name='extendedLabelWidget'
+         column="selectedColumn"></div>
+</div>
