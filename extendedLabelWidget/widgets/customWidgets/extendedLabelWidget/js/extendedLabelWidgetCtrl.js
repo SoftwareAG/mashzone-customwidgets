@@ -120,56 +120,19 @@ angular.module('extendedLabelWidgetModule')
           actionService.triggerAction($scope.item.identifier, actionConstants.actionTrigger.ON_CLICK, cols, vals);
         }
 
-        // $scope.onSelection = function (data) {
-        //   console.log("+-+-+- selected data ", data);
-        //   var cols = [];
-        //   var vals = [];
-        //   if (data) {
-        //     if ($scope.config.dataMapping.labelCol) {
-        //       cols.push($scope.config.dataMapping.labelCol.newName);
-        //       vals.push(data.data[$scope.labelColIdx]);
-        //     }
-        //     if ($scope.config.dataMapping.footerLeftCol) {
-        //       cols.push($scope.config.dataMapping.footerLeftCol.newName);
-        //       vals.push(data.data[$scope.footerLeftColIdx]);
-        //     }
-        //     if ($scope.config.dataMapping.footerRightCol) {
-        //       cols.push($scope.config.dataMapping.footerRightCol.newName);
-        //       vals.push(data.data[$scope.footerRightColIdx]);
-        //     }
-        //     if ($scope.config.dataMapping.moreColumns) {
-        //       $scope.moreColumnsIdxs.forEach(function (yCol) {
-        //         cols.push($scope.config.dataMapping.moreColumns[yCol.index].newName);
-        //         vals.push(data.data[yCol.index]);
-        //       });
-        //     }
-        //   } else {
-        //     if ($scope.config.dataMapping.labelCol) {
-        //       cols.push($scope.config.dataMapping.labelCol.newName);
-        //     }
-        //     if ($scope.config.dataMapping.footerLeftCol) {
-        //       cols.push($scope.config.dataMapping.footerLeftCol.newName);
-        //     }
-        //     if ($scope.config.dataMapping.footerRightCol) {
-        //       cols.push($scope.config.dataMapping.footerRightCol.newName);
-        //     }
-        //     if ($scope.config.dataMapping.moreColumns) {
-        //       $scope.moreColumnsIdxs.forEach(function (yCol) {
-        //         cols.push($scope.config.dataMapping.moreColumns[yCol.index].newName);
-        //       });
-        //     }
-        //     vals = cols.map(function () {
-        //       return null;
-        //     });
-        //   }
-        //   // console.log("+-+-+- selection result columns", cols);
-        //   // console.log("+-+-+- selection result values", vals);
-        //   filterService.onSelectionChange($scope.item.identifier, cols, vals);
-        //   actionService.triggerAction($scope.item.identifier, actionConstants.actionTrigger.ON_SELECTION_CHANGE, cols, vals);
-        // };
-
         $scope.$watch('config.properties', function () {
           $scope.$root.$broadcast("dashboardDefinitionChanged"); // Broadcast so that the config is saved
+        }, true);
+
+        $scope.$watch('config.properties.labelSize', function (newVal, oldVal) {
+          if (newVal.localeCompare(oldVal) != 0) {
+            var theOtherLabel = jQuery("div.the-other-label", "#" + $scope.customWidgetID);
+            if (theOtherLabel.length != 0) {
+              var w = $scope.width - $scope.config.properties.margin.left - $scope.config.properties.margin.right;
+              var h = $scope.height - $scope.config.properties.margin.top - $scope.config.properties.margin.bottom;
+              changeFontSize(theOtherLabel, $scope.theValue, w, h);
+            }
+          }
         }, true);
 
         $scope.$watch('$parent.item.hideHeader', function (newValue) {
@@ -184,7 +147,7 @@ angular.module('extendedLabelWidgetModule')
           }
         });
 
-        $scope.$watchCollection("[width, height]", _.debounce(
+        $scope.$watch("[width, height]", _.debounce(
           function (newValues, oldValues) {
             try {
               if (newValues[0] >= 0 && newValues[1] >= 0 && $scope.theValue) {
