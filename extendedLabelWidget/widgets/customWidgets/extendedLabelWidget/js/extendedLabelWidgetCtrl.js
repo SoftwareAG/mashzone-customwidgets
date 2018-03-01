@@ -1,5 +1,5 @@
 angular.module('extendedLabelWidgetModule')
-  .controller('extendedLabelWidgetCtrl', ['$scope', 'UtilX_elw', 'lodashPromise_elw', 'jQuery', '$interval', 'formatDateService', 'formatNumberService', 'thresholdConstants', 'thresholdService', 'selectionService', 'filterService', 'actionService', 'actionConstants',
+  .controller('extendedLabelWidgetCtrl', ['$scope', 'UtilX_elw', 'lodashPromise_elw', 'jQuery_elw', '$interval', 'formatDateService', 'formatNumberService', 'thresholdConstants', 'thresholdService', 'selectionService', 'filterService', 'actionService', 'actionConstants',
     function ($scope, UtilX, lodashPromise, jQuery, $interval, formatDateService, formatNumberService, thresholdConstants, thresholdService, selectionService, filterService, actionService, actionConstants) {
       lodashPromise.then(function (_) {
         if ($scope.config.autoRefresh === undefined) {
@@ -20,6 +20,7 @@ angular.module('extendedLabelWidgetModule')
             thresholds: []
           },
           margin: {},
+          isScalable: true,
           labelSize: "large"
         }, $scope.config.properties);
         $scope.config.properties.margin = {
@@ -96,7 +97,7 @@ angular.module('extendedLabelWidgetModule')
                     var outputDateFormat = d3.time.format("%d.%m.%Y %H:%M:%S %Z");
                     $scope.theValue = outputDateFormat(valAsDate);
                     break;
-  
+
                   default:
                     $scope.theValue = data.rows[0].values[0];
                     break;
@@ -113,6 +114,10 @@ angular.module('extendedLabelWidgetModule')
             }
           }
         };
+
+        $scope.isScalable = function(){
+          return $scope.config.properties.isScalable;
+        }
         $scope.textClicked = function () {
           var cols = [$scope.config.dataMapping.labelCol.newName];
           var vals = [$scope.theValue];
@@ -120,8 +125,9 @@ angular.module('extendedLabelWidgetModule')
           actionService.triggerAction($scope.item.identifier, actionConstants.actionTrigger.ON_CLICK, cols, vals);
         }
 
-        $scope.$watch('config.properties', function () {
+        $scope.$watch('config.properties', function (newVal) {
           $scope.$root.$broadcast("dashboardDefinitionChanged"); // Broadcast so that the config is saved
+          console.log("+-+- ELW > is scalable = " + newVal.isScalable);
         }, true);
 
         $scope.$watch('config.properties.labelSize', function (newVal, oldVal) {
@@ -171,7 +177,7 @@ angular.module('extendedLabelWidgetModule')
 
         function changeFontSize(elem, strVal, w, h) {
           // TODO: check if this is needed for the title header as well
-          if (w > 0 && h > 0) {
+          if (w > 0 && h > 0 && $scope.config.properties.isScalable) {
             var theCanvas = jQuery(".the-canvas", "#" + $scope.customWidgetID);
             if (theCanvas.length > 0) {
               var fontFamily = elem.css("font-family");
@@ -198,9 +204,10 @@ angular.module('extendedLabelWidgetModule')
                 break;
             }
             elem.css('font-size', sz);
-          } else {
-            elem.css("font-size", "100%");
-          }
+          } 
+          // else {
+          //   elem.css("font-size", "100%");
+          // }
         }
       });
     }

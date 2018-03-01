@@ -50,6 +50,10 @@
     margin-top: 35px;
 }
 
+.extendedLabelWidget div.fixed-size-label {
+    font-size: 45px;
+}
+
 .extendedLabelWidget .label-title {
     font-size: 25px;
     line-height: 35px;

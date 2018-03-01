@@ -15,6 +15,7 @@ angular.module('extendedLabelWidgetModule')
         'autoRefresh',
         'hLine',
         'selectSize',
+        'activateScaling',
         'hLine',
         'isGlobal',
         'hLine',
@@ -40,6 +41,12 @@ angular.module('extendedLabelWidgetModule')
             return {
               name: 'Select Size',
               template: 'widgets/customWidgets/extendedLabelWidget/partials/properties/selectSize.html'
+            };
+          }
+          if (actionKey === "activateScaling") {
+            return {
+              name: 'Activate Scaling',
+              template: 'widgets/customWidgets/extendedLabelWidget/partials/properties/activateScaling.html'
             };
           }
         }
