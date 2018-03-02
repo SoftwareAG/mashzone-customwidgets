@@ -1,9 +1,9 @@
 angular.module('extendedLabelWidgetModule')
-  .service('jQuery', ['$window', function ($window) {
+  .service('jQuery_elw', ['$window', function ($window) {
     // License - N/A built into MashZone
     return $window.jQuery;
   }])
-  .service('lodashPromise_elw', ['$q', '$window', 'jQuery', function ($q, $window, jQuery) {
+  .service('lodashPromise_elw', ['$q', '$window', 'jQuery_elw', function ($q, $window, jQuery) {
     // License - MIT
     var deferred = $q.defer();
     jQuery.getScript("/mashzone/hub/dashboard/widgets/customWidgets/extendedLabelWidget/js/lodash.min.js.src", function () {
