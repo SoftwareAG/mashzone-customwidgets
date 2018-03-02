@@ -115,7 +115,7 @@ angular.module('extendedLabelWidgetModule')
           }
         };
 
-        $scope.isScalable = function(){
+        $scope.isScalable = function () {
           return $scope.config.properties.isScalable;
         }
         $scope.textClicked = function () {
@@ -177,19 +177,28 @@ angular.module('extendedLabelWidgetModule')
 
         function changeFontSize(elem, strVal, w, h) {
           // TODO: check if this is needed for the title header as well
-          if (w > 0 && h > 0 && $scope.config.properties.isScalable) {
+          if (w > 0 && h > 0) {
             var theCanvas = jQuery(".the-canvas", "#" + $scope.customWidgetID);
-            if (theCanvas.length > 0) {
-              var fontFamily = elem.css("font-family");
-              var font = "";
-              var d2 = theCanvas.get(0).getContext("2d");
-              var textM = d2.measureText($scope.theValue);
-              var sz = 15;
-              do {
-                font = sz + "px " + fontFamily;
-                d2.font = font;
-                sz = sz + 1;
-              } while (sz < 100 && (d2.measureText($scope.theValue).width < w));
+            var sz = 15;
+            if ($scope.config.properties.isScalable) {
+              if (theCanvas.length > 0) {
+                var fontFamily = elem.css("font-family");
+                var font = "";
+                var d2 = theCanvas.get(0).getContext("2d");
+                var textM = d2.measureText($scope.theValue);
+                do {
+                  font = sz + "px " + fontFamily;
+                  d2.font = font;
+                  sz = sz + 1;
+                } while (sz < 100 && (d2.measureText($scope.theValue).width < w));
+              }
+            } else {
+              console.log("+-+- ELW > elem height ", elem.outerHeight());
+              if (w < h) {
+                sz = elem.outerWidth() * .60;
+              } else {
+                sz = elem.outerHeight() * .9;
+              }
             }
             switch ($scope.config.properties.labelSize) {
               case 'large':
@@ -204,10 +213,7 @@ angular.module('extendedLabelWidgetModule')
                 break;
             }
             elem.css('font-size', sz);
-          } 
-          // else {
-          //   elem.css("font-size", "100%");
-          // }
+          }
         }
       });
     }

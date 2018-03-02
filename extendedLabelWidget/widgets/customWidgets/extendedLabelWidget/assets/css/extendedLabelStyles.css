@@ -44,14 +44,14 @@
     min-width: 30px;
     min-height: 30px;
     height: 100%;
-    /* order: 2; */
     width: 100%;
-    text-align: center;
-    margin-top: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .extendedLabelWidget div.fixed-size-label {
-    font-size: 45px;
+    font-size: 90px;
 }
 
 .extendedLabelWidget .label-title {
@@ -61,10 +61,8 @@
     width: 100%;
     font-weight: bold;
     text-transform: uppercase;
-    /* order: 1; */
 }
 
 .extendedLabelWidget canvas {
     display: none;
-    /* order: 3; */
 }
