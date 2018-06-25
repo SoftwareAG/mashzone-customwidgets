@@ -1,3 +1,21 @@
+/*
+ * Copyright © 2013 - 2018 Software AG, Darmstadt, Germany and/or its licensors
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ *   Licensed under the Apache License, Version 2.0 (the "License");
+ *   you may not use this file except in compliance with the License.
+ *   You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.                                                            
+ *
+ */
 angular.module('extendedLabelWidgetModule')
   .controller('extendedLabelWidgetCtrl', ['$scope', 'UtilX_elw', 'lodashPromise_elw', 'jQuery_elw', '$interval', 'formatDateService', 'formatNumberService', 'thresholdConstants', 'thresholdService', 'selectionService', 'filterService', 'actionService', 'actionConstants',
     function ($scope, UtilX, lodashPromise, jQuery, $interval, formatDateService, formatNumberService, thresholdConstants, thresholdService, selectionService, filterService, actionService, actionConstants) {
@@ -24,10 +42,10 @@ angular.module('extendedLabelWidgetModule')
           labelSize: "large"
         }, $scope.config.properties);
         $scope.config.properties.margin = {
-          left: 50,
-          top: 80,
-          right: 50,
-          bottom: 50
+          left: 15,
+          top: 10,
+          right: 15,
+          bottom: 10
         };
         $scope.customWidgetID = UtilX.generateUUID();
         $scope.isZoomed = false;
