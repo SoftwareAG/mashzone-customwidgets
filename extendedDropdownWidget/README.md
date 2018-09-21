@@ -7,7 +7,7 @@ This widget wraps the "Select2" javascript library (select2.org) to enable some 
 
 Installation
 ------------
-This widget uses the version 3.5.3 or "Select2". The files needed are contained under the folder "allLibs". If this library (in the mentioned version) is already available in your environment, you would not need to copy these files again. Both provided folders, "extendedDropdownWidget" and "allLibs", need to be copied/unpacked into "<MASHZONE_NG_ROOT>/apache-tomcat/webapps/mashzone/hub/dashboard/widgets/customWidgets". After that, you will need to restart the server.
+This widget uses the version 3.5.3 of "Select2". The files needed are contained under the folder "allLibs". If this library (in the mentioned version) is already available in your environment, you would not need to copy these files again. Both provided folders, "extendedDropdownWidget" and "allLibs", need to be copied/unpacked into "<MASHZONE_NG_ROOT>/apache-tomcat/webapps/mashzone/hub/dashboard/widgets/customWidgets". After that, you will need to restart the server.
 For further infos, please refer to the MashZone NextGen documentation on how to install a custom widget.
 
 Usage
