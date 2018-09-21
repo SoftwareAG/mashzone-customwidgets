@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013 - 2018 Software AG, Darmstadt, Germany and/or its licensors
+ * Copyright © 2017 - 2018 Software AG, Darmstadt, Germany and/or its licensors
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -21,6 +21,7 @@ angular.module('extendedLabelWidgetModule')
     // License - N/A built into MashZone
     return $window.jQuery;
   }])
+  // load an external library to be used only
   .service('lodashPromise_elw', ['$q', '$window', 'jQuery_elw', function ($q, $window, jQuery) {
     // License - MIT
     var deferred = $q.defer();
