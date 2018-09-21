@@ -1,0 +1,11 @@
+<div id='{{customWidgetID}}' class="extendedDropdownWidget" style="width:100%; height:100%;">
+    <!-- <h1 ng-if="showTitle && title" class="col-xs-12 page-header" style="text-align: center;">{{title}}</h1> -->
+    <div class="xdt-widget-container" ng-if="data && data.length > 0">
+        <input type="hidden" class="xdt-widget-select2" xtd-widget />
+    </div>
+    <div class="xdt-widget-container" ng-if="!data || data.length == 0">
+        <select class="xdt-widget-select2" xtd-widget-empty >
+            <option></option>
+        </select>
+    </div>
+</div>

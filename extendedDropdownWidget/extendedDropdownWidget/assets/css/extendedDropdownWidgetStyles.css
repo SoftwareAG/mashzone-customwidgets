@@ -1,0 +1,71 @@
+.extendedDropdownWidget-assign-data select {
+    height: 24px;
+}
+
+.extendedDropdownWidget-assign-data .add-icon-setting {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/presto/hub/dashboard/assets/images/add_16x16.png);
+}
+
+.extendedDropdownWidget-assign-data .remove-icon-setting {
+    width: 20px;
+    height: 16px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url(/presto/hub/dashboard/assets/images/remove_16x16.png);
+}
+
+.panel-dashboard-default[widget-type='extendedDropdownWidget'].hideBorder .panel-body {
+    background-color: transparent;
+}
+
+.widgetPropertyPopup .propertyPopupContent table.widgetPreopertiesTable .checkbox span {
+    margin-left:0;
+}
+
+/* .extendedDropdownWidget-config.location-config {
+    width: 130px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 0;
+    padding-right: 0;
+} */
+
+.xdt-widget-container, .xdt-widget-select2 {
+    width: 100%;
+}
+.extendedDropdownWidget-config .row {
+    margin-bottom: 2px;
+    margin-left: 0px;
+    float: left;
+}
+
+.extendedDropdownWidget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.extendedDropdownWidget select {
+    width: 90%;
+}
+
+.extendedDropdownWidget-root {
+    width: 100%;
+}
+
+.extendedDropdownWidget-root div {
+    padding: 2px 5px;
+}
+
+.extendedDropdownWidget-root div.selected {
+    background-color: red;
+    color:white;
+    display: inline-block;
+}
+

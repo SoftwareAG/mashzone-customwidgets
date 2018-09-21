@@ -1,0 +1,43 @@
+<div>
+    Visible column
+    <ul
+        ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.ddColumn"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="text,numeric,date"
+        selection-condition="selectColumn(column)"
+    >
+    </ul>
+    Key column
+    <ul
+        ff-single-column-drop
+        item="itemClone"
+        column="itemClone.config.dataMapping.keyColumn"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-clicked="columnSelectionHandler(column)"
+        column-dropped="columnDropHandler(column)"
+        column-removed="columnDeleted(column)"
+        accept-filter="text,numeric"
+        selection-condition="isSelected(column)"
+    >
+    </ul>
+
+    More columns (invisible)
+    <ul
+        ff-multiple-column-drop
+        class="normal-columns"
+        item="itemClone"
+        columns="itemClone.config.dataMapping.furtherColumns"
+        input-columns="itemClone.calculationDefinitionContainer.calculationResultColumns"
+        column-dropped="columnDropHandler(column)"
+        accept-filter="text,numeric,date"
+        column-clicked="columnSelectionHandler(column)"
+        selection-condition="isSelected(column)"
+        sortable="true"
+    >
+    </ul>
+</div>

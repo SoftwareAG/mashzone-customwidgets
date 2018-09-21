@@ -1,0 +1,11 @@
+<div class="extendedDropdownWidget-config" style="text-align:left;">
+    <select class="col-xs-11" ng-model="widget.config.sorting.column" ng-options="col.newName for col in widget.config.allColumns track by col.name">
+        <option value="">No sorting column...</option>
+    </select>
+    <label class="checkbox active disabled" style="width: 21px;">
+        <input type="checkbox" is-checked="{{widget.config.sorting.isDesc ? 'checked' : 'unchecked'}}" ng-model="widget.config.sorting.isDesc" ng-disabled="!widget.config.sorting.column"/>
+        <span class="ng-binding"></span>
+    </label>
+    <span style="padding-right: 5px;" ng-disabled="!widget.config.sorting.column">Descending</span>
+</div>
+

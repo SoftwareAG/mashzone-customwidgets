@@ -1,0 +1,31 @@
+<div ng-if="selectedColumn"
+    class="advanced-properties" 
+    style="overflow: hidden; min-height: 300px;">
+
+    <div class="config-field advanced-cofig-main-row" ng-if="!isContextBased()">
+        Display name  
+        <div ff-column-name-input
+			 item="itemClone"
+			 column="selectedColumn"></div>
+    </div>
+     
+    <div ff-column-type-config
+         widget-type-name='extendedDropdownWidget'
+         column="selectedColumn" 
+         class="combobox-spacer"
+         is-visible-column="isVisibleColumn"
+         item="itemClone"></div>
+
+    <div class="config-field advanced-config-main-row" ng-if="isVisibleColumn(selectedColumn)">
+        Initial selected value
+        <ff-value-input class="fullWidth" ng-model="selectedColumn.preSelection" type="selectedColumn.type" required="false"></ff-value-input>
+    </div>
+
+    <!-- <div class="config-field advanced-cofig-main-row limit-spacing alignCenter" 
+        ng-if="isVisibleColumn(selectedColumn)">
+            <span ff-sortable-select model="selectedColumn.sortDescending"></span>
+            <label class="after-label">
+                Sort descending
+            </label>
+    </div> -->
+</div>

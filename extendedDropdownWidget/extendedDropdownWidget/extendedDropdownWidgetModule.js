@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013 - 2018 Software AG, Darmstadt, Germany and/or its licensors
+ * Copyright © 2017 - 2018 Software AG, Darmstadt, Germany and/or its licensors
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -16,5 +16,4 @@
  *   limitations under the License.                                                            
  *
  */
-
-angular.module('extendedLabelWidgetModule', ['prestoDashboard.dashboardProvider', 'dashboard']);
+angular.module('extendedDropdownWidgetModule', ['prestoDashboard.dashboardProvider', 'dashboard']);

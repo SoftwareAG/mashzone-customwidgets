@@ -1,0 +1,7 @@
+<div ng-controller="addNoSelectionCtrl">
+    <label class="checkbox active disabled" style="width: 21px;">
+        <input type="checkbox" is-checked="{{addNoSelectionEntry ? 'checked' : 'unchecked'}}" ng-model="addNoSelectionEntry"/>
+        <span class="ng-binding"></span>
+    </label>
+    <span style="padding-right: 5px;" ng-disabled="!addNoSelectionEntry">Show entry</span>
+</div>

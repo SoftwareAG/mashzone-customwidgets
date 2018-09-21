@@ -1,0 +1,8 @@
+Third Party components used
+--------------------------------------------------------------------------
+Name: select2 
+Version: v3.5.3
+Copyright: 
+License: MIT License
+Further information can be found under: https://github.com/select2/select2
+---------------------------------------------------------------------------

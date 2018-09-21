@@ -1,5 +1,5 @@
 /*
- * Copyright © 2013 - 2018 Software AG, Darmstadt, Germany and/or its licensors
+ * Copyright © 2017 - 2018 Software AG, Darmstadt, Germany and/or its licensors
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -16,25 +16,45 @@
  *   limitations under the License.                                                            
  *
  */
-angular.module('extendedLabelWidgetModule')
-  .service('jQuery_elw', ['$window', function ($window) {
+angular.module('extendedDropdownWidgetModule')
+  .service('jQuery_xdw', ['$window', function ($window) {
     // License - N/A built into MashZone
     return $window.jQuery;
   }])
-  .service('lodashPromise_elw', ['$q', '$window', 'jQuery_elw', function ($q, $window, jQuery) {
+  .service('lodashPromise_xdw', ['$q', '$window', 'jQuery_xdw', function ($q, $window, jQuery) {
     // License - MIT
     var deferred = $q.defer();
-    jQuery.getScript("/mashzone/hub/dashboard/widgets/customWidgets/extendedLabelWidget/js/lodash.min.js.src", function () {
+    jQuery.getScript("/mashzone/hub/dashboard/widgets/customWidgets/extendedDropdownWidget/js/lodash.min.js.src", function () {
       deferred.resolve($window._.noConflict());
     });
     return deferred.promise;
   }])
-  .service('UtilX_elw', [function () {
+  .service('UtilX_xdw', [function () {
     /**
      * this contains some utils I find useful inside the widgets. Most of it has been taken from internet forums (stackoverflow...)
      * and is therefore not my work
      */
     var UtilX = {
+      debug: function(msg, obj, isDebug) {
+        if (isDebug === undefined || isDebug == null) {
+          var url = window.location.href;
+          var name = "debug";
+          var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+              results = regex.exec(url);
+          if (!results) isDebug = false;
+          else if (!results[2]) isDebug = false;
+          else isDebug = decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        if (isDebug === 'true' && msg) {
+          var prefix = "+-+-+- TTWW >> ";
+          if (obj == null || obj === undefined) {
+            console.log(prefix + msg);
+          } else {
+            console.log(prefix + msg + " ", obj);
+          }
+        }
+        return isDebug;
+      },
       parseDate: function (x) {
         return d3.time.format("%Y-%m-%dT%H:%M:%S").parse(x);
       },
@@ -49,6 +69,14 @@ angular.module('extendedLabelWidgetModule')
           .toString(16)
           .slice(-10) + s(2)
         ].join("-"); // Use timestamp to avoid collisions
+      },
+      findWithAttr: function (array, attr, value) {
+        for(var i = 0; i < array.length; i += 1) {
+          if(array[i][attr] === value) {
+            return i;
+          }
+        }
+        return -1;
       },
       parseShortDate: function (x) {
         return d3.time.format("%Y-%m-%d").parse(x);
@@ -66,6 +94,20 @@ angular.module('extendedLabelWidgetModule')
         dateFormat = dateFormat.replace("mm", "%M");
         dateFormat = dateFormat.replace("ss", "%S");
         return dateFormat;
+      },
+      isTooBright: function (colorCode) {
+        var c = colorCode.substring(1);      // strip #
+        var rgb = parseInt(c, 16);   // convert rrggbb to decimal
+        var r = (rgb >> 16) & 0xff;  // extract red
+        var g = (rgb >>  8) & 0xff;  // extract green
+        var b = (rgb >>  0) & 0xff;  // extract blue
+
+        // var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+        var luma = (r+g+b)/3; // 
+        if (luma < 128) {
+          return false;
+        }
+        return true;
       },
       /**
        * this will transpose the data rows in MZNG feed result
