@@ -1,3 +1,5 @@
+# !!! Archived!!! This repository is no longer relevant!
+
 MashZone NextGen Custom Widgets
 ===============================
 
